@@ -2,6 +2,7 @@ package jp.login.jorge.auth;
 
 
 import jp.login.jorge.enitty.Rol;
+import jp.login.jorge.enitty.User;
 import jp.login.jorge.repository.RolRepository;
 import jp.login.jorge.repository.UserRepository;
 import jp.login.jorge.service.JwtService;
@@ -30,6 +31,14 @@ public class AuthenticationService {
             rol.setName("User");
             rol = rolRepository.save(rol);
         }
+        User user = new User();
+        user.setName(requets.getName());
+        user.setLastname(requets.getLastname());
+        user.setEmail(requets.getEmail());
+        user.setPasswrod(requets.getPassword());
+        user.setRol(rol);
+
+
     }
 
 
